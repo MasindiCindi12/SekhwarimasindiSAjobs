@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SekhwarimasindiSAjobs.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> -  SA IT job Portal</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body style="background-color:#f6f9fd;">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style=" color:white; background-color: #316cb3;  height: 50px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/"> SA IT jobs</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" >
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="postJobLogin.aspx">Job Seeker
+                                 <span class=""></span></a>
+                            <%-- Candidate/JobSeeker --%>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="JobSearch.aspx">Search Job</a></li>
+                                <li><a runat="server" href="JobListing.aspx">Job Listing</a></li>
+                                <li><a runat="server" href="applyJobs.aspx">Apply Job</a></li>
+                            </ul>
+                        </li>
+                        <%-- Employer --%>
+                        <li><a runat="server" href="postJobLogin.aspx">Employer</a></li>
+                        <%-- Others --%>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/signUp"><span class="glyphicon glyphicon-user"></span>Sign In</a></li>
+
+
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="~/signUp"><span class="glyphicon glyphicon-log-in"></span>Sign Up</a>
+
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="RegisterJobSeeker.aspx">Job Seeker</a></li>
+                                <li><a runat="server" href="companyReg.aspx">Employer</a></li>
+                            </ul>
+                        </li>
+
+
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content" style="background-color: #e3f2fd;width:96%;  margin-left:2% !important; margin-right:2% !important; height:100% !important;">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+           
+        <%--    <footer style="height:50px; margin-top:-50px; ">
+             
+            </footer>--%>
+        </div>
+        <div class="footer" style=" position: fixed;left: 0;bottom: 0;width: 100%; height:65px;background-color:#2a6592;color: white;text-align: center;">
+               <p>&copy; <%: DateTime.Now.Year %> - South Africa IT job Portal</p>
+        </div>
+    </form>
+</body>
+</html>
